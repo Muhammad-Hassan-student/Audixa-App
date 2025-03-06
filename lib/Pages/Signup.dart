@@ -1,4 +1,5 @@
 import 'package:audixa/Pages/MyHome.dart';
+import 'package:audixa/Pages/Signin.dart';
 import 'package:audixa/widgets/uiHelper.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,7 @@ class _Signup extends State<Signup> {
       try {
         usercredential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(email: email, password: password).then((v){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => MyHome()));
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MyHome()));
         });
       } on FirebaseAuthException catch (e) {
         
@@ -38,15 +39,7 @@ class _Signup extends State<Signup> {
     return Container(
       child: SafeArea(
         child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.green,
-            title: Center(
-                child: Text(
-              "Sign up",
-              style: TextStyle(
-                  color: Colors.white, fontFamily: "Charmonman", fontSize: 26),
-            )),
-          ),
+          appBar: AppBar(title: Text("Sign up"),),
           body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -85,9 +78,14 @@ class _Signup extends State<Signup> {
                       },
                       child: Padding(
                         padding: const EdgeInsets.all(9),
-                        child: Text(
-                          "Login",
-                          style: TextStyle(fontSize: 16),
+                        child: InkWell(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => Signin()));
+                          },
+                          child: Text(
+                            "Sign in",
+                            style: TextStyle(fontSize: 16),
+                          ),
                         ),
                       )),
                 ],
@@ -109,3 +107,16 @@ class _Signup extends State<Signup> {
     );
   }
 }
+
+//App bar
+//Updated
+// AppBar(
+// backgroundColor: Colors.green,
+// title:
+// Center(
+// child: Text(
+// "Sign up",
+// style: TextStyle(
+// color: Colors.white, fontFamily: "Charmonman", fontSize: 26),
+// )),
+// ),

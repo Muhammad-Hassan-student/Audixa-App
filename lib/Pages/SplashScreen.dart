@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:audixa/Pages/CheckAuth.dart';
 import 'package:audixa/Pages/MyHome.dart';
 import 'package:audixa/Pages/Signup.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class _SplashScreen extends State<Splashscreen> {
     super.initState();
     Timer(Duration(seconds: 5), () {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => Signup()));
+          context, MaterialPageRoute(builder: (context) => Checkauth()));
     });
   }
 

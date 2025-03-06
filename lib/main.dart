@@ -1,4 +1,5 @@
 import 'package:audixa/Pages/SplashScreen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:audixa/layout/colors.dart' as AppColors;
@@ -17,6 +18,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.green,
+          foregroundColor: Colors.white,
+          centerTitle: true,
+          titleTextStyle: TextStyle(
+              color: Colors.white, fontFamily: "Charmonman", fontSize: 26
+          ),
+        ),
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.background),
         useMaterial3: true,
       ),

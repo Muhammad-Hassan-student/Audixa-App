@@ -42,10 +42,20 @@ class Uihelper {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text(text),
-            // actions: [
-            //   Navigator.pop(context);
-            // ],
+            title: Column(
+              children: [
+                Icon(Icons.add_alert,size: 50,),
+                SizedBox(height: 20,),
+                Text(text,style: TextStyle(fontSize: 16,color: Colors.red),)
+              ],
+            ),
+            actions: [
+              Center(
+                child: ElevatedButton(onPressed: (){
+                  Navigator.pop(context);
+                }, child: Text("Ok")),
+              )
+            ],
           );
         });
   }
