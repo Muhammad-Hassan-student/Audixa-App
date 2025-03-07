@@ -44,19 +44,31 @@ class Uihelper {
           return AlertDialog(
             title: Column(
               children: [
-                Icon(Icons.add_alert,size: 50,),
+                Icon(Icons.add_alert, size: 50,),
                 SizedBox(height: 20,),
-                Text(text,style: TextStyle(fontSize: 16,color: Colors.red),)
+                Text(text, style: TextStyle(fontSize: 16, color: Colors.red),)
               ],
             ),
             actions: [
               Center(
-                child: ElevatedButton(onPressed: (){
+                child: ElevatedButton(onPressed: () {
                   Navigator.pop(context);
                 }, child: Text("Ok")),
               )
             ],
           );
         });
+  }
+
+  static CustomPhoneField(VoidCallback callBack,Widget Icon, String buttonText,ButtonStyle ) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 40 ,right: 40),
+      child: ElevatedButton(onPressed: callBack,
+          style: ButtonStyle,
+
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [Icon, Text(buttonText,style: TextStyle(fontSize: 16,fontWeight: FontWeight.w700),)],)),
+    );
   }
 }

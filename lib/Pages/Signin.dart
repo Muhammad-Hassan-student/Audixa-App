@@ -1,5 +1,6 @@
 import 'package:audixa/Pages/ForgotPassword.dart';
 import 'package:audixa/Pages/MyHome.dart';
+import 'package:audixa/Pages/PhoneAuth.dart';
 import 'package:audixa/Pages/Signup.dart';
 import 'package:audixa/widgets/uiHelper.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -97,7 +98,9 @@ class _SigninState extends State<Signin> {
                 )),
             TextButton(onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPassword()));
-            }, child: Text("Forgot password"))
+            }, child: Text("Forgot password")),
+            //Sign in with phone authentication
+            Uihelper.CustomPhoneField((){Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => PhoneAuth()));},Icon(Icons.phone,color: Colors.black,size: 30,), "Sign in with phone", ElevatedButton.styleFrom(backgroundColor: Colors.grey[300],padding: EdgeInsets.symmetric(horizontal: 50,vertical: 10),shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24))))
           ],
         ),
       )),
